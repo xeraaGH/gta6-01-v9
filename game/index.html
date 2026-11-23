@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solara Bay — an open-world crime game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"><canvas id="c"></canvas></div>
+
+<div id="hud" class="hidden">
+  <div id="topbar">
+    <div id="cash">$0</div>
+    <div id="stars" title="Wanted level"></div>
+    <div id="clock">08:00</div>
+    <div id="district">La Plaza</div>
+  </div>
+  <div id="standing">Standing <span id="standval">0</span>/100</div>
+  <div id="objective"></div>
+  <canvas id="minimap" width="190" height="190"></canvas>
+  <div id="speedbox"><span id="speed">0</span> mph</div>
+  <div id="weaponbox"><span id="weapon">Fists</span> · <span id="ammo"></span></div>
+  <div id="radiobox">RADIO <span id="station">SOL FM</span></div>
+  <div id="crosshair">+</div>
+  <div id="vignette"></div>
+  <div id="toast"></div>
+</div>
+
+<div id="title" class="screen">
+  <h1>SOLARA BAY</h1>
+  <p class="tag">A sun-soaked open-world crime game</p>
+  <p class="story">Nia "Nova" Reyes and Theo "Turbo" Marsh came to Solara Bay with nothing but a stolen
+  sedan and a plan: take the city back from Sal "The Anchor" Moreau and his Tide Kings.
+  Ten jobs. One crew. Every street is yours to take.</p>
+  <p class="controls">WASD move / drive &nbsp;·&nbsp; Mouse drag to look &nbsp;·&nbsp; E enter / exit car &nbsp;·&nbsp; C switch lead
+  <br>Click shoot &nbsp;·&nbsp; F punch &nbsp;·&nbsp; 1/2/3 weapons &nbsp;·&nbsp; T taxi &nbsp;·&nbsp; R radio &nbsp;·&nbsp; Shift run / handbrake
+  <br>Space jump &nbsp;·&nbsp; Q Focus (Nova) / Nitro (Turbo) &nbsp;·&nbsp; Esc pause &nbsp;·&nbsp; M missions</p>
+  <button id="startbtn">START ENGINE</button>
+  <button id="continuebtn" class="hidden">CONTINUE — $0</button>
+  <p class="fine">An original game. No Rockstar content. Built for make.fun's "Make GTA 6" bounty.</p>
+</div>
+
+<div id="pause" class="screen hidden">
+  <h1>PAUSED</h1>
+  <p class="story">Solara Bay waits for no one. Except right now.</p>
+  <button id="resumebtn">RESUME</button>
+  <button id="savebtn">SAVE GAME</button>
+  <button id="quitbtn">QUIT TO TITLE</button>
+</div>
+
+<div id="end" class="screen hidden">
+  <h1 id="endtitle">BUSTED</h1>
+  <p class="story" id="endtext"></p>
+  <button id="retrybtn">TRY AGAIN</button>
+  <button id="titlebtn">BACK TO TITLE</button>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="src/state.js"></script>
+<script src="src/city.js"></script>
+<script src="src/vehicles.js"></script>
+<script src="src/people.js"></script>
+<script src="src/police.js"></script>
+<script src="src/missions.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/hud.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
